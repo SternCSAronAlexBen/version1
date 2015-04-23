@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+{% if summaries %}
+    {% for item in summaries %}
+        <p>Trying here</p>
+        <p>{{ item.headline }}</p>
+        <p>{{ item.time }}</p>
+        <p>{{ item.text }}</p>
+
+    {% endfor %}
+{% else %}
+    <p>Nothing Found.</p>
+{% endif %}
+</body>
+</html>

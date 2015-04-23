@@ -1,0 +1,9 @@
+{% if latest_news %}
+    <ul>
+    {% for item in latest_news %}
+        <li><a href="/my_beautiful_website/{{ item.headline }}/">{{ item.time }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No news is available.</p>
+{% endif %}
