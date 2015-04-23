@@ -3,26 +3,17 @@ __author__ = 'ben'
 from bs4 import BeautifulSoup
 import urllib.request as ur
 import re
-class story(list):
 
-    def __init__(self,headline,story,time):
+
+class story_nomodel(list):
+
+    def __init__(self,headline,text,time):
         self.headline = headline
-        self.story = story
+        self.text = text
         self.time = time
 
     def __str__(self):
-        return self.headline + "\t" + self.time + "\n" + self.story
-
-
-
-
-class list_of_stories(list):
-
-    def __str__(self):
-        base = ""
-        for item in self:
-            base = base + item.headline + "\t" + item.time + "\n"
-        return base
+        return self.headline + "\t" + self.time + "\n" + self.text
 
 #soupifies a URL
 def soup_from_address(address):
@@ -105,9 +96,9 @@ def bloomberg_stories(search_term,max_return=3):
             curr_headline = headlines[k]
             curr_story = stories[k]
             curr_time = times[k]
-            new_story = story(curr_headline,curr_story,curr_time)
+            new_story = story_nomodel(curr_headline,curr_story,curr_time)
             story_list.append(new_story)
-        story_list = list_of_stories(story_list)
+
     else:#return none if no stories are found
         story_list = None
 
